@@ -1,1 +1,158 @@
-@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: #faf6f3;
+  --foreground: #2d1b3d;
+  --card: #ffffff;
+  --card-foreground: #2d1b3d;
+  --popover: #ffffff;
+  --popover-foreground: #2d1b3d;
+  --primary: #6b3fa0;
+  --primary-foreground: #ffffff;
+  --secondary: #f4d4c8;
+  --secondary-foreground: #2d1b3d;
+  --muted: #e8d5c4;
+  --muted-foreground: #7d6b7d;
+  --accent: #f4a17f;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #e8d5c4;
+  --input: #ffffff;
+  --ring: #6b3fa0;
+  --chart-1: #6b3fa0;
+  --chart-2: #f4a17f;
+  --chart-3: #f4d4c8;
+  --chart-4: #e8d5c4;
+  --chart-5: #7d6b7d;
+  --radius: 0.625rem;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #2d1b3d;
+  --sidebar-primary: #6b3fa0;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #f4a17f;
+  --sidebar-accent-foreground: #ffffff;
+  --sidebar-border: #e8d5c4;
+  --sidebar-ring: #6b3fa0;
+}
+
+.dark {
+  --background: #1f141f;
+  --foreground: #f5e8e3;
+  --card: #2d1f2f;
+  --card-foreground: #f5e8e3;
+  --popover: #2d1f2f;
+  --popover-foreground: #f5e8e3;
+  --primary: #a855c0;
+  --primary-foreground: #1f141f;
+  --secondary: #d4a891;
+  --secondary-foreground: #1f141f;
+  --muted: #4a3a4a;
+  --muted-foreground: #b8a8b8;
+  --accent: #f4a17f;
+  --accent-foreground: #1f141f;
+  --destructive: #f87171;
+  --destructive-foreground: #1f141f;
+  --border: #4a3a4a;
+  --input: #2d1f2f;
+  --ring: #a855c0;
+  --chart-1: #a855c0;
+  --chart-2: #f4a17f;
+  --chart-3: #d4a891;
+  --chart-4: #4a3a4a;
+  --chart-5: #b8a8b8;
+  --sidebar: #2d1f2f;
+  --sidebar-foreground: #f5e8e3;
+  --sidebar-primary: #a855c0;
+  --sidebar-primary-foreground: #f5e8e3;
+  --sidebar-accent: #f4a17f;
+  --sidebar-accent-foreground: #1f141f;
+  --sidebar-border: #4a3a4a;
+  --sidebar-ring: #a855c0;
+}
+
+@theme inline {
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 0.5rem));
+  }
+}
+
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.marquee {
+  animation: marquee 35s linear infinite;
+}
+
+.marquee-reverse {
+  animation: marquee-reverse 35s linear infinite;
+}
+
+.marquee-pause:hover {
+  animation-play-state: paused;
+}

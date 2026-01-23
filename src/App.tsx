@@ -7,6 +7,7 @@ import tiktok from './assets/tiktok.svg'
 import snapchat from './assets/snapchat.svg'
 import veeHero from './assets/vee_hero1.jpeg'
 import veeNails from './assets/vee_nails2.jpeg'
+import BookingForm from './components/BookingForm';
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -87,9 +88,9 @@ export default function Home() {
               <a href="#contact" className="text-foreground hover:text-primary transition">
                 Contact
               </a>
-              <button className="bg-primary text-primary-foreground px-6 py-2 rounded-full hover:opacity-90 transition">
+              <a href='#booking' className="bg-primary text-primary-foreground px-6 py-2 rounded-full hover:opacity-90 transition">
                 Book Now
-              </button>
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
@@ -128,9 +129,9 @@ export default function Home() {
               >
                 Contact
               </a>
-              <button className="w-full bg-primary text-primary-foreground px-6 py-2 rounded-full hover:opacity-90 transition mt-4">
+              <a href='#booking' className="w-full bg-primary text-primary-foreground px-6 py-2 rounded-full hover:opacity-90 transition mt-4">
                 Book Now
-              </button>
+              </a>
             </div>
           )}
         </div>
@@ -151,12 +152,9 @@ export default function Home() {
                 treatments.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-primary text-primary-foreground px-8 py-3 rounded-full hover:opacity-90 transition font-semibold">
+                <a href='#booking' className="bg-primary text-primary-foreground px-8 py-3 rounded-full hover:opacity-90 transition font-semibold">
                   Book Appointment
-                </button>
-                {/* <button className="border-2 border-primary text-primary px-8 py-3 rounded-full hover:bg-primary/10 transition font-semibold">
-                  Learn More
-                </button> */}
+                </a>
               </div>
             </div>
             <div className="relative">
@@ -325,10 +323,14 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="booking">
+        <BookingForm />
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-primary text-primary-foreground">
         <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-2 gap-12">
+          <div className="flex flex-col items-center gap-12">
             <div>
               <h2 className="text-4xl md:text-5xl font-bold mb-8 text-pretty">
                 Get In Touch
@@ -338,35 +340,36 @@ export default function Home() {
                   <MapPin className="w-6 h-6 shrink-0" />
                   <div>
                     <h4 className="font-semibold mb-1">Address</h4>
-                    <p className="opacity-90">123 Beauty Close, Wuse Zone 7, Abuja 900287</p>
+                    <p className="opacity-90">Our Lady Queen of Nigeria Catholic Pro- Cathedral</p>
+                    <p className="opacity-90">Ibadan Street, Area 3</p>
+                    <p className="opacity-90">Garki, Abuja</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <Phone className="w-6 h-6 shrink-0" />
                   <div>
                     <h4 className="font-semibold mb-1">Phone</h4>
-                    <p className="opacity-90">+234 803 456 7890</p>
+                    <p className="opacity-90">07012191697 | 07044748205</p>
                   </div>
                 </div>
                 <div className="flex gap-4">
                   <Mail className="w-6 h-6 shrink-0" />
                   <div>
                     <h4 className="font-semibold mb-1">Email</h4>
-                    <p className="opacity-90">hello@luxesalon.com</p>
+                    <p className="opacity-90">Veronicaagber76@Gmail.Com</p>
                   </div>
                 </div>
                 <div className="pt-4">
                   <h4 className="font-semibold mb-3">Hours</h4>
                   <div className="text-sm opacity-90 space-y-1">
-                    <p>Mon - Fri: 9:00 AM - 7:00 PM</p>
-                    <p>Saturday: 10:00 AM - 6:00 PM</p>
-                    <p>Sunday: 11:00 AM - 5:00 PM</p>
+                    <p>Mon - Sat: 8:00 AM - 7:00 PM</p>
+                    <p>Sun: Closed</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-primary-foreground rounded-xl p-8 text-foreground">
+            {/* <div className="bg-primary-foreground rounded-xl p-8 text-foreground">
               <form className="space-y-4">
                 <div>
                   <label className="block text-sm font-semibold mb-2">Name</label>
@@ -388,11 +391,9 @@ export default function Home() {
                   <label className="block text-sm font-semibold mb-2">Service Interested In</label>
                   <select className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-background">
                     <option>Select a service</option>
-                    <option>Hair Styling</option>
-                    <option>Makeup Artistry</option>
-                    <option>Nail Services</option>
-                    <option>Spa Treatments</option>
-                    <option>Lash & Brow</option>
+                    {services.map((s, idx) => (
+                      <option key={idx}>{s.title}</option>
+                    ))}
                   </select>
                 </div>
                 <div>
@@ -410,7 +411,7 @@ export default function Home() {
                   Send Message
                 </button>
               </form>
-            </div>
+            </div> */}
           </div>
         </div>
       </section>
@@ -448,7 +449,7 @@ export default function Home() {
               <ul className="text-sm space-x-4 opacity-75 flex">
                 <li><img src={instagram} alt="Instagram" className="w-5 h-5 invert" /></li>
                 <li><img src={facebook} alt="Facebook" className="w-5 h-5 invert" /></li>
-                <li><img src={tiktok} alt="TikTok" className="w-5 h-5 invert" /></li>
+                <li><a href="https://www.tiktok.com/@veebeautyconcept" target='_blank'><img src={tiktok} alt="TikTok" className="w-5 h-5 invert" /></a></li>
                 <li><img src={snapchat} alt="Snapchat" className="w-5 h-5 invert" /></li>
               </ul>
             </div>

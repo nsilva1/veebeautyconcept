@@ -485,10 +485,14 @@ export default function Home() {
             <div>
               <h4 className="font-semibold mb-4">Services</h4>
               <ul className="text-sm space-y-2 opacity-75">
-                <li>Hair Styling</li>
-                <li>Makeup Artistry</li>
-                <li>Nail Services</li>
-                <li>Spa Treatments</li>
+                <li>Lashes Extensions</li>
+                <li>Pedicure</li>
+                <li>Manicure</li>
+                <li>all Kinds of Braiding</li>
+                <li>Wig Installation</li>
+                <li>Make-Up</li>
+                <li>All Kinds of Nails</li>
+                <li>Microblading</li>
               </ul>
             </div>
             <div>

@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Calendar, Clock, User, Phone, CheckCircle2, Sparkles } from 'lucide-react';
+import emailjs from '@emailjs/browser'
 
 const BookingForm = () => {
   const [step, setStep] = useState(1);
@@ -24,6 +25,61 @@ const BookingForm = () => {
   const handleBack = () => setStep(step - 1);
 
   const isContactValid = formData.name.trim() !== '' && formData.phone.trim() !== '';
+
+  const template = 'template_v9olj8x'
+  const service = 'service_p2uy93e'
+  const pub = 'OGHUKx-2t93L-r2P7'
+
+  const sendBookingEmail = async () => {
+    const formattedDate = new Date(formData.date).toLocaleDateString('en-US', {
+    weekday: 'long',
+    month: 'short',
+    day: 'numeric',
+  });
+
+  try {
+    await emailjs.send(
+      service,
+      template,
+      {
+        name: formData.name,
+        phone: formData.phone,
+        service: formData.service,
+        date: formattedDate,
+        time: formData.time,
+      },
+      pub
+    );
+  } catch (error) {
+    console.error('EmailJS error:', error);
+  }
+  }
+
+  const sendToWhatsApp = () => {
+  const phoneNumber = '2347012191697';
+
+  const formattedDate = new Date(formData.date).toLocaleDateString('en-US', {
+    weekday: 'long',
+    month: 'short',
+    day: 'numeric',
+  });
+
+  const message = `
+📅 *New Booking*
+
+👤 Name: ${formData.name}
+💅 Service: ${formData.service}
+🗓 Date: ${formattedDate}
+⏰ Time: ${formData.time}
+📞 Phone: ${formData.phone}
+  `.trim();
+
+  window.open(
+    `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`,
+    '_blank'
+  );
+};
+
 
   return (
     <section id="book" className="py-20 px-4 bg-secondary/10">
@@ -128,7 +184,7 @@ const BookingForm = () => {
                 </div>
               </div>
               <button 
-                onClick={() => setStep(4)}
+                onClick={async () => { await sendBookingEmail(); sendToWhatsApp(); setStep(4)}}
                 disabled={!isContactValid}
                 className="w-full cursor-pointer p-4 rounded-lg bg-accent text-white font-bold text-lg shadow-lg hover:scale-[1.02] transition"
               >

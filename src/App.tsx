@@ -1,48 +1,60 @@
 import { useState } from 'react';
 import { Heart, MapPin, Phone, Mail, Menu, X } from 'lucide-react';
-import logo from './assets/veebeauty_logo-bg.png'
+import logo from './assets/vee_beauty_logo.jpeg'
 import instagram from './assets/instagram.svg'
 import facebook from './assets/facebook.svg'
 import tiktok from './assets/tiktok.svg'
 import snapchat from './assets/snapchat.svg'
 import veeHero from './assets/vee_hero1.jpeg'
+// import heroVideo from './assets/vee_hero_video.mp4'
 import veeNails from './assets/vee_nails2.jpeg'
 import BookingForm from './components/BookingForm';
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  // const [showDescription, setShowDescription] = useState(false)
 
   const services = [
     {
-      icon: '✨',
-      title: 'Braiding & Extensions',
+      icon: '/salon-4.jpeg',
+      title: 'Lashes Extensions',
       description: 'Box braids, twists, cornrows, and various extension styles',
     },
     {
-      icon: '💄',
-      title: 'Makeup',
+      icon: '/salon-14.jpeg',
+      title: 'Pedicure',
       description: 'Bridal, special events, and everyday makeup services',
     },
     {
-      icon: '💅',
-      title: 'Nail Services',
+      icon: '/salon-15.jpeg',
+      title: 'Manicure',
       description: 'Manicures, pedicures, and nail art for the perfect finish',
     },
     {
-      icon: '🧖‍♀️',
-      title: 'Wig Installation & Care',
+      icon: '/salon-16.jpeg',
+      title: 'All kinds of braidings',
       description: 'Professional wig installation and maintenance services',
     },
     {
-      icon: '👁️',
-      title: 'Lashes & Brows',
+      icon: '/salon-20.jpeg',
+      title: 'Wig Installation',
       description: 'Extensions, lifts, tints, and shaping services',
     },
-    // {
-    //   icon: '✂️',
-    //   title: 'Specialized Care',
-    //   description: 'Keratin treatments, coloring, and hair therapy',
-    // },
+    {
+      icon: '/salon-21.jpeg',
+      title: 'Make-Up',
+      description: 'Keratin treatments, coloring, and hair therapy',
+    },
+    {
+      icon: '/salon-18.jpeg',
+      title: 'All kinds of Nails',
+      description: 'Keratin treatments, coloring, and hair therapy',
+    },
+    {
+      icon: '/salon-19.jpeg',
+      title: 'Microblading',
+      description: 'Keratin treatments, coloring, and hair therapy',
+    },
   ];
 
   const testimonials = [
@@ -50,29 +62,47 @@ export default function Home() {
       name: 'Sarah Idowu',
       role: 'Content Creator',
       text: 'Vee Beauty has completely transformed my look. The team is incredibly professional and the ambiance is so relaxing.',
-      // image: '👩‍🦰',
+      media: '/testimonial-1.mp4'
     },
     {
       name: 'Alicia Temitayo',
       role: 'Model',
       text: 'Every visit feels like a spa day. The attention to detail and personalized care is unmatched.',
-      // image: '👩‍🦱',
+      media: '/testimonial-2.mp4'
     },
     {
       name: 'Jessica Onoja',
       role: 'Wedding Planner',
       text: 'I trust Vee Beauty Concept for all my special event prep. They make you feel beautiful inside and out.',
-      // image: '👩‍🦲',
+      media: '/testimonial-3.mp4'
+    },
+    {
+      name: 'Sarah Idowu',
+      role: 'Content Creator',
+      text: 'Vee Beauty has completely transformed my look. The team is incredibly professional and the ambiance is so relaxing.',
+      media: '/testimonial-4.mp4'
+    },
+    {
+      name: 'Alicia Temitayo',
+      role: 'Model',
+      text: 'Every visit feels like a spa day. The attention to detail and personalized care is unmatched.',
+      media: '/testimonial-5.mp4'
+    },
+    {
+      name: 'Jessica Onoja',
+      role: 'Wedding Planner',
+      text: 'I trust Vee Beauty Concept for all my special event prep. They make you feel beautiful inside and out.',
+      media: '/testimonial-6.mp4'
     },
   ];
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-background border-b border-border">
+      <nav className="sticky top-0 z-50 bg-white border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16 sm:h-20">
-            <img src={logo} alt="Vee Beauty Concept Logo" className="h-20 w-20" />
+            <img src={logo} alt="Vee Beauty Concept Logo" className="h-auto w-24" />
 
             {/* Desktop Menu */}
             <div className="hidden md:flex items-center gap-8">
@@ -155,6 +185,9 @@ export default function Home() {
                 <a href='#booking' className="bg-primary text-primary-foreground px-8 py-3 rounded-full hover:opacity-90 transition font-semibold">
                   Book Appointment
                 </a>
+                <a href='#gallery' className="border-2 border-primary text-primary px-8 py-3 rounded-full hover:bg-primary/10 transition font-semibold">
+                  View Our Work
+                </a>
               </div>
             </div>
             <div className="relative">
@@ -168,7 +201,7 @@ export default function Home() {
                 <p className="text-sm font-semibold text-secondary-foreground">
                   5★ Rated Salon
                 </p>
-                <p className="text-xs text-secondary-foreground/70">100+ Happy Clients</p>
+                <p className="text-xs text-secondary-foreground/70">Trusted by 500+ Happy Clients in Abuja</p>
               </div>
             </div>
           </div>
@@ -192,16 +225,29 @@ export default function Home() {
             {services.map((service, idx) => (
               <div
                 key={idx}
-                className="bg-card rounded-xl p-8 hover:shadow-lg hover:border-primary/50 border border-border transition cursor-pointer group"
+                className="rounded-xl hover:shadow-lg hover:border-primary/50 border border-border transition cursor-pointer group"
               >
-                <div className="text-4xl mb-4 group-hover:scale-110 transition">{service.icon}</div>
-                <h3 className="text-xl font-bold mb-2 text-primary">{service.title}</h3>
-                <p className="text-foreground/70 leading-relaxed">{service.description}</p>
+                <div className="relative rounded-xl overflow-hidden">
+                  <img src={service.icon} className="w-full h-64 object-cover" loading='lazy' />
+                  <div className="absolute inset-0 bg-black/30 flex items-end p-4">
+                    <h3 className="text-white font-bold">{service.title}</h3>
+                  </div>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
+
+
+      {/* Quick Book */}
+      <section className="py-16 bg-primary text-white text-center">
+        <h3 className="text-3xl font-bold mb-8">Ready to glow?</h3>
+        <a href="#booking" className="bg-white text-primary px-8 py-3 rounded-full">
+          Book Your Session
+        </a>
+      </section>
+
 
       {/* About Section */}
       <section id="about" className="py-20 md:py-32 px-4 sm:px-6 lg:px-8">
@@ -258,32 +304,21 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-pretty">
-              What Our Clients Say
+              Our Clients
             </h2>
             <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
-              Hear from our satisfied clients about their transformative experiences at Luxe
+              See our happy clients enjoying our premium beauty and wellness services
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, idx) => (
-              <div key={idx} className="bg-card rounded-xl p-8 border border-border">
+              <div key={idx} className="">
                 <div className="flex items-center gap-4 mb-4">
-                  <div>
-                    <h4 className="font-bold text-foreground">{testimonial.name}</h4>
-                    <p className="text-sm text-foreground/60">{testimonial.role}</p>
-                  </div>
-                </div>
-                <div className="flex gap-1 mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <span key={i} className="text-accent">
-                      ★
-                    </span>
-                  ))}
-                </div>
-                <p className="text-foreground/80 leading-relaxed italic">
-                  "{testimonial.text}"
-                </p>
+                  <video className='inset-0 w-full h-full object-cover rounded-xl' autoPlay loop muted playsInline preload="metadata">
+                    <source src={testimonial.media} type='video/mp4' />
+                  </video>
+                </div>                
               </div>
             ))}
           </div>
@@ -291,20 +326,20 @@ export default function Home() {
       </section>
 
       {/* Salon Gallery Marquee Section */}
-      <section className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-secondary/20">
+      <section id='gallery' className="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-secondary/20">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-pretty">
+            {/* <h2 className="text-4xl md:text-5xl font-bold mb-4 text-pretty">
               Our Salon Experience
             </h2>
             <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
               See our happy clients enjoying our premium beauty and wellness services
-            </p>
+            </p> */}
           </div>
 
-          <div className="relative overflow-hidden">
+          <div className="relative overflow-hidden mb-4">
             <div className="flex gap-4 marquee marquee-pause">
-              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num, idx) => (
+              {[18, 20, 6, 8, 22, 12, 14, 16].map((num, idx) => (
                 <div
                   key={idx}
                   className="shrink-0 w-80 h-96 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition"
@@ -315,6 +350,27 @@ export default function Home() {
                     width={320}
                     height={384}
                     className="w-full h-full object-cover"
+                    loading='lazy'
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative overflow-hidden mt-4">
+            <div className="flex gap-4 marquee-reverse marquee-pause">
+              {[17, 19, 3, 7, 9, 5, 23, 15].map((num, idx) => (
+                <div
+                  key={idx}
+                  className="shrink-0 w-80 h-96 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition"
+                >
+                  <img
+                    src={`/salon-${num}.jpeg`}
+                    alt={`Salon client experience ${num}`}
+                    width={320}
+                    height={384}
+                    className="w-full h-full object-cover"
+                    loading='lazy'
                   />
                 </div>
               ))}

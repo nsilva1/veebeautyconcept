@@ -132,7 +132,7 @@
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-50% - 0.5rem));
+    transform: translateX(-100%);
   }
 }
 
@@ -146,11 +146,11 @@
 }
 
 .marquee {
-  animation: marquee 35s linear infinite;
+  animation: marquee 55s linear infinite;
 }
 
 .marquee-reverse {
-  animation: marquee-reverse 35s linear infinite;
+  animation: marquee-reverse 55s linear infinite;
 }
 
 .marquee-pause:hover {

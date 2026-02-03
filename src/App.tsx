@@ -12,7 +12,6 @@ import BookingForm from './components/BookingForm';
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  // const [showDescription, setShowDescription] = useState(false)
 
   const services = [
     {
@@ -339,7 +338,7 @@ export default function Home() {
 
           <div className="relative overflow-hidden mb-4">
             <div className="flex gap-4 marquee marquee-pause">
-              {[18, 20, 6, 8, 22, 12, 14, 16].map((num, idx) => (
+              {[18, 20, 6, 8, 22, 12, 14, 16, 24].map((num, idx) => (
                 <div
                   key={idx}
                   className="shrink-0 w-80 h-96 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition"
@@ -359,7 +358,7 @@ export default function Home() {
 
           <div className="relative overflow-hidden mt-4">
             <div className="flex gap-4 marquee-reverse marquee-pause">
-              {[17, 19, 3, 7, 9, 5, 23, 15].map((num, idx) => (
+              {[17, 19, 3, 7, 9, 5, 23, 15, 25].map((num, idx) => (
                 <div
                   key={idx}
                   className="shrink-0 w-80 h-96 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition"
@@ -424,50 +423,6 @@ export default function Home() {
                 </div>
               </div>
             </div>
-
-            {/* <div className="bg-primary-foreground rounded-xl p-8 text-foreground">
-              <form className="space-y-4">
-                <div>
-                  <label className="block text-sm font-semibold mb-2">Name</label>
-                  <input
-                    type="text"
-                    placeholder="Your name"
-                    className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-background"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold mb-2">Email</label>
-                  <input
-                    type="email"
-                    placeholder="your@email.com"
-                    className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-background"
-                  />
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold mb-2">Service Interested In</label>
-                  <select className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-background">
-                    <option>Select a service</option>
-                    {services.map((s, idx) => (
-                      <option key={idx}>{s.title}</option>
-                    ))}
-                  </select>
-                </div>
-                <div>
-                  <label className="block text-sm font-semibold mb-2">Message</label>
-                  <textarea
-                    placeholder="Tell us more about your needs"
-                    rows={4}
-                    className="w-full px-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary bg-background resize-none"
-                  />
-                </div>
-                <button
-                  type="submit"
-                  className="w-full bg-primary text-primary-foreground py-2 rounded-lg hover:opacity-90 transition font-semibold"
-                >
-                  Send Message
-                </button>
-              </form>
-            </div> */}
           </div>
         </div>
       </section>
@@ -488,7 +443,7 @@ export default function Home() {
                 <li>Lashes Extensions</li>
                 <li>Pedicure</li>
                 <li>Manicure</li>
-                <li>all Kinds of Braiding</li>
+                <li>All Kinds of Braiding</li>
                 <li>Wig Installation</li>
                 <li>Make-Up</li>
                 <li>All Kinds of Nails</li>

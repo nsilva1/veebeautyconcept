@@ -320,6 +320,9 @@ export default function Home() {
                 </div>                
               </div>
             ))}
+            <img src='/salon-24.jpeg' alt='Pedicure Soaking' className='rounded-xl' />
+            <img src='/salon-25.jpeg' alt='Pedicure Soaking' className='rounded-xl' />
+            <img src='/salon-26.jpeg' alt='Pedicure Soaking' className='rounded-xl' />
           </div>
         </div>
       </section>
